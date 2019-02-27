@@ -1,0 +1,22 @@
+{
+  "name": "overwolf-boilerplate",
+  "version": "1.0.0",
+  "description": "a boilerplate for creating Vue.js projects for Overwolf",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/elviswolcott/overwolf-boilerplate.git"
+  },
+  "author": "Elvis Wolcott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/elviswolcott/overwolf-boilerplate/issues"
+  },
+  "homepage": "https://gitlab.com/elviswolcott/overwolf-boilerplate#README",
+  "devDependencies": {
+    "@vue/cli": "^3.4.1"
+  }
+}

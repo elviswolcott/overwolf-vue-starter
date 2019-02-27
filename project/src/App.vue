@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <WindowControls support="https://twitter.com/trialsreport"></WindowControls>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -31,3 +32,14 @@ body {
   }
 }
 </style>
+
+<script>
+import WindowControls from "./components/WindowControls.vue";
+
+export default {
+  components: {
+    WindowControls,
+  },
+}
+</script>
+

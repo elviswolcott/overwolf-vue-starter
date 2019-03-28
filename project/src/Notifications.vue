@@ -29,8 +29,8 @@
 </style>
 
 <script>
-import Notification from "./components/Notification.vue";
-import { connect } from "./services/event-bus.js";
+import Notification from "@/components/Notification.vue";
+import { connect } from "@/services/event-bus.js";
 
 export default {
   components: {

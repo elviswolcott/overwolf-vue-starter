@@ -52,10 +52,10 @@ body {
 </style>
 
 <script>
-import WindowControls from "./components/WindowControls.vue";
-import Notification from "./components/Notification.vue";
+import WindowControls from "@/components/WindowControls.vue";
+import Notification from "@/components/Notification.vue";
 
-import { connect } from "./services/event-bus.js";
+import { connect } from "@/services/event-bus.js";
 
 export default {
   components: {

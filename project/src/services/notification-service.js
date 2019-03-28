@@ -1,5 +1,5 @@
 /* handles displaying notifications the same way across all windows */
-import { restore } from "./ow-async.js";
+import { restore } from "@/services/ow-async.js";
 
 // sends a notification
 async function sendNotification(

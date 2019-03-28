@@ -1,5 +1,5 @@
 import Vue from "vue";
-import App from "./Notifications.vue";
+import App from "@/Notifications.vue";
 
 Vue.config.productionTip = false;
 

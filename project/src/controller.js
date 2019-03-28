@@ -12,10 +12,10 @@ import {
   getRunningGameInfo,
   isOverlayEnabled,
   isAutoLaunchEnabled
-} from "./services/ow-async.js";
+} from "@/services/ow-async.js";
 
-import { sendNotification } from "./services/notification-service.js";
-import { EventBus } from "./services/event-bus.js";
+import { sendNotification } from "@/services/notification-service.js";
+import { EventBus } from "@/services/event-bus.js";
 
 // returns a function that toggles a window
 const createToggle = window_name => {

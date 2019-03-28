@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { restore } from "../services/ow-async.js";
+import { restore } from "@/services/ow-async.js";
 
 export default {
   props: ["notification", "layout"],

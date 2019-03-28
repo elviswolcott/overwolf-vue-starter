@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { close, minimize, dragMove } from "../services/ow-async.js";
+import { close, minimize, dragMove } from "@/services/ow-async.js";
 
 export default {
   props: ["close", "hide", "settings", "support"],

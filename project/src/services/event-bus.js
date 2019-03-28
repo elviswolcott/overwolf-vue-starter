@@ -1,4 +1,4 @@
-import { getMainWindow } from "./ow-async.js";
+import { getMainWindow } from "@/services/ow-async.js";
 const debug = true;
 
 function EventBus() {

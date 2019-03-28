@@ -97,7 +97,7 @@
       "uniqueItems": true,
       "items": {
         "type": "string",
-        "pattern": "(?i)(Camera|Microphone|Logging|Extensions|Streaming|DesktopStreaming|Profile|Clipboard|Hotkeys|Media|GameInfo|GameControl|FileSystem|LogitechLed|LogitechArx|OwWebview)"
+        "enum": ["Camera","Microphone","Logging","Extensions","Streaming","DesktopStreaming","Profile","Clipboard","Hotkeys","Media","GameInfo","GameControl","FileSystem","LogitechLed","LogitechArx","OwWebview"]
       }
     },
     "dependencies": {
@@ -140,7 +140,7 @@
         "force_browser": {
           "description": "Causes links in the app to be opened using the user's default browser or Overwolf's browser. Takes 'user' and 'overwolf' (case insensitive).",
           "type": "string",
-          "pattern": "(?i)(user|overwold)"
+          "enum": ["user", "overwolf"]
         },
         "plugins": {
           "description": "A list of file references to plugins that are provided with the web app. The references should be relative paths from the app folder.",
@@ -280,6 +280,14 @@
         "file": {
           "description": "Points to the file to be loaded inside the window.",
           "type": "string"
+        },
+        "debug_url": {
+          "description": "Points to the file to be loaded inside the window. Supports hosting on localhost for dev server.",
+          "type": "string"
+        },
+        "egs_shelf": {
+          "description": "Metadata for a end game summary shelf",
+          "type": "object"
         },
         "show_in_taskbar": {
           "description": "Define if the window is displayed in the Windows taskbar and alt-tab window selection menu.",

@@ -5,6 +5,36 @@ module.exports = {
   outputDir: "dist/Files",
   assetsDir: "",
   publicPath: "Files",
+  pages: {
+    main: {
+      entry: "src/main.js",
+      template: "public/index.html",
+      filename: "index.html",
+      title: "App Name",
+      chunks: ["chunk-vendors", "chunk-common", "main"]
+    },
+    notifications: {
+      entry: "src/notifications.js",
+      template: "public/index.html",
+      filename: "notifications.html",
+      title: "App Name - Notifications",
+      chunks: ["chunk-vendors", "chunk-common", "notifications"]
+    },
+    controller: {
+      entry: "src/controller.js",
+      template: "public/index.html",
+      filename: "background.html",
+      title: "App Name - Background Process",
+      chunks: ["chunk-vendors", "chunk-common", "controller"]
+    },
+    egs: {
+      entry: "src/egs.js",
+      template: "public/egs.html",
+      filename: "egs.html",
+      title: "App Name - End Game Summary",
+      chunks: ["chunk-vendors", "chunk-common", "egs"]
+    }
+  },
   configureWebpack: {
     plugins: [
       // copy over the necessary files into the containing directory

@@ -17,7 +17,7 @@
     "Extensions",
     "GameInfo",
     "Hotkeys",
-    "Logging",
+    "Logging"
   ],
   "data": {
     "game_targeting": {
@@ -35,13 +35,30 @@
     "game_events": [],
     "protocol_override_domains": {
     },
+    "hotkeys": {
+      "toggle_visibility_main": {
+        "title": "Show/Hide App Name",
+        "default": "Ctrl+Q",
+        "action-type": "custom",
+        "passthrough": false
+      }
+    },
+    "enable_auto_refresh": true,
+    "reload_delay": 500,
+    "filter": "*.*",
     "user_agent": "Overwolf",
-    "start_window": "main",
+    "start_window": "controller",
     "windows": {
+      "controller": {
+        "file": "files/background.html",
+        "debug_url": "http://localhost:8080/Files/background.html",
+        "is_background_page": true
+      },
       "main": {
         "file": "files/index.html",
+        "debug_url": "http://localhost:8080/Files/index.html",
         "transparent": true,
-        "block_top_window_navigation": true,
+        "block_top_window_navigation": false,
         "popup_blocker": true,
         "clickthrough": false,
         "in_game_only": false,
@@ -57,6 +74,53 @@
           "width": 1200, 
           "height": 700
         }
+      },
+      "notifications": {
+        "file": "files/notifications.html",
+        "debug_url": "http://localhost:8080/Files/notifications.html",
+        "transparent": true,
+        "block_top_window_navigation": false,
+        "popup_blocker": true,
+        "clickthrough": false,
+        "in_game_only": false,
+        "show_in_taskbar": false,
+        "disable_restore_animation": false,
+        "grab_keyboard_focus": true,
+        "mute": true,
+        "min_size": {
+          "width": 0, 
+          "height": 0
+        },
+        "size": {
+          "width": 400, 
+          "height": 200
+        }
+      },
+      "egs_shelf_window": {
+        "file": "files/egs.html",
+        "debug_url": "http://localhost:8080/Files/egs.html",
+        "in_game_only": false,
+        "show_in_taskbar": true,
+        "transparent": true,
+        "size": {
+          "width": 100,
+          "height": 300
+        },
+        "max_size": {
+          "width": 1200,
+          "height": 400
+        },
+        "egs_shelf": {
+          "show_as_iframe": true,
+          "title": "my shelf",
+          "loading_text": "Loading My App Summary...",
+          "tooltip_text": "My App Summary",
+          "tooltip_url": "https://example.com",
+          "logo": "IconMouseOver.png",
+          "background": "",
+          "ftue_header": "My App",
+          "ftue_body": "This shelf shows my app's summary of the last game"
+        } 
       }
     },
     "force_browser": "overwolf",

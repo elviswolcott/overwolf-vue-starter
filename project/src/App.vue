@@ -7,7 +7,12 @@
     </div>
     <router-view />
     <div id="notifications">
-      <Notification v-for="(notification, index) in notifications" :key="`notification-${index}`" notification="notification" layout="horizontal-compact"></Notification>
+      <Notification
+        v-for="(notification, index) in notifications"
+        :key="`notification-${index}`"
+        notification="notification"
+        layout="horizontal-compact"
+      ></Notification>
     </div>
   </div>
 </template>
@@ -50,14 +55,18 @@ body {
 import WindowControls from "./components/WindowControls.vue";
 import Notification from "./components/Notification.vue";
 
+import { connect } from "./services/event-bus.js";
+
 export default {
   components: {
     WindowControls,
     Notification
   },
-  data: () => { return {
-    notifications: []
-  }},
+  data: () => {
+    return {
+      notifications: []
+    };
+  },
   methods: {
     showNotification: function(notification) {
       window.lastNotification = notification;
@@ -65,11 +74,9 @@ export default {
       // remove it in a few seconds
     }
   },
-  created: function() {
-    const that = this;
-    window.newNotification = function(n) {
-      that.showNotification(n);
-    };
+  created: async function() {
+    const bus = await connect();
+    bus.on("notification", this.showNotification);
   }
 };
 </script>

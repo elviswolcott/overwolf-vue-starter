@@ -1,13 +1,17 @@
 <template>
   <div id="app">
     <div class="notifications">
-      <Notification :notification="notification" layout="standalone" v-for="(notification, index) in notifications" :key="`notification-${index}`"></Notification>
+      <Notification
+        :notification="notification"
+        layout="standalone"
+        v-for="(notification, index) in notifications"
+        :key="`notification-${index}`"
+      ></Notification>
     </div>
   </div>
 </template>
 
 <style lang="scss">
-
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,14 +30,17 @@
 
 <script>
 import Notification from "./components/Notification.vue";
+import { connect } from "./services/event-bus.js";
 
 export default {
   components: {
     Notification
   },
-  data: () => { return {
-    notifications: []
-  }},
+  data: () => {
+    return {
+      notifications: []
+    };
+  },
   methods: {
     showNotification: function(notification) {
       window.lastNotification = notification;
@@ -41,11 +48,9 @@ export default {
       // remove it in a few seconds
     }
   },
-  created: function() {
-    const that = this;
-    window.newNotification = function(n) {
-      that.showNotification(n);
-    };
+  created: async function() {
+    const bus = await connect();
+    bus.on("notification", this.showNotification);
   }
 };
 </script>

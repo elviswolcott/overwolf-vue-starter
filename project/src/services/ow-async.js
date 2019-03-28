@@ -27,12 +27,8 @@ async function getWindow(id) {
   });
 }
 
-async function getOpenWindows() {
-  return new Promise(resolve => {
-    overwolf.windows.getOpenWindows(result => {
-      resolve(result);
-    });
-  });
+function getMainWindow() {
+  return overwolf.windows.getMainWindow();
 }
 
 async function minimize(id) {
@@ -173,7 +169,7 @@ async function isAutoLaunchEnabled(id) {
 
 export {
   getCurrentWindow,
-  getOpenWindows,
+  getMainWindow,
   getWindow,
   minimize,
   maximize,

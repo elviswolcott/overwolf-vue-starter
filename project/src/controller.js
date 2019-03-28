@@ -12,9 +12,10 @@ import {
   getRunningGameInfo,
   isOverlayEnabled,
   isAutoLaunchEnabled
-} from "./ow-async.js";
+} from "./services/ow-async.js";
 
-import { sendNotification } from "./notification-service";
+import { sendNotification } from "./services/notification-service.js";
+import { EventBus } from "./services/event-bus.js";
 
 // returns a function that toggles a window
 const createToggle = window_name => {
@@ -37,6 +38,9 @@ const createToggle = window_name => {
 var manifest;
 // global object for hotkeys
 var hotkeys = {};
+
+var bus = new EventBus();
+console.log(bus);
 
 // runs to startup the app
 async function init() {
@@ -90,13 +94,12 @@ async function promptOverlayEnable(id) {
   );
 }
 
-async function promptAutoLaunchEnable(game, app) {
+async function promptAutoLaunchEnable(game) {
   await sendNotification(
     "Auto Launch is disabled",
     "Click to open settings",
     () => {
-      window.open(`overwolf://store/game-settings/game-id/${game}`)
-      window.open(`overwolf://store/game-settings/appid-id/${app}`);
+      window.open(`overwolf://store/game-settings/game-id/${game}`);
     }
   );
 }
@@ -143,7 +146,7 @@ overwolf.settings.games.onOverlayEnablementChanged.addListener(change => {
 // ask the user to enable the overlay if they disable it
 overwolf.settings.games.onOverlayEnablementChanged.addListener(change => {
   if (change.enabled === false) {
-    promptAutoLaunchEnable(change.appId, change.gameId);
+    promptAutoLaunchEnable(change.gameId);
   }
 });
 
@@ -170,7 +173,8 @@ overwolf.windows.onStateChanged.addListener(change => {
   }
 });
 
-init();
+// give it a second for the window to be created by Overwolf
+setTimeout(init, 100);
 
 overwolf.egs.onSessionInfoChanged.addListener(change => {
   // could so something with the change

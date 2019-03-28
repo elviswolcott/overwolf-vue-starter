@@ -1,5 +1,5 @@
 /* handles displaying notifications the same way across all windows */
-import { getOpenWindows, restore } from "./ow-async";
+import { restore } from "./ow-async.js";
 
 // sends a notification
 async function sendNotification(
@@ -9,9 +9,6 @@ async function sendNotification(
   type = "normal"
 ) {
   await restore("notifications");
-  const windows = await getOpenWindows();
-  const notificationWindow = windows.notifications.window;
-  const mainWindow = windows.main && windows.main.window;
   // if the action is a boolean it determines wether to show the hotkey
   var hotkey, onClick;
   if (typeof action === "boolean") {
@@ -28,8 +25,7 @@ async function sendNotification(
     custom: onClick
   };
   // send a notification on both windows
-  notificationWindow.newNotification(notification);
-  mainWindow.newNotification(notification);
+  window.INTERNAL_EVENT_BUS.fire("notification", notification);
 }
 
 export { sendNotification };

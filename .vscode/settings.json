@@ -2,7 +2,7 @@
   "json.schemas": [
     {
       "fileMatch": [
-        "*ext/manifest.json"
+        "*/manifest.json"
       ],
       "url": "./schema/owmanifest.json"
     }

@@ -79,7 +79,7 @@ async function promptEGSEnable() {
     "Game Summary is disabled",
     "Click to open settings",
     () => {
-      window.open(`overwolf://store/game-settings/game-id/${gameId}`);
+      window.location.href = `overwolf://store/game-settings/game-id/${gameId}`;
     }
   );
 }
@@ -89,7 +89,7 @@ async function promptOverlayEnable(id) {
     "Overlay is disabled",
     "Click to open settings",
     () => {
-      window.open(`overwolf://store/game-settings/game-id/${id}`);
+      window.location.href = `overwolf://store/game-settings/game-id/${id}`;
     }
   );
 }
@@ -99,7 +99,7 @@ async function promptAutoLaunchEnable(game) {
     "Auto Launch is disabled",
     "Click to open settings",
     () => {
-      window.open(`overwolf://store/game-settings/game-id/${game}`);
+      window.location.href = `overwolf://store/game-settings/game-id/${game}`;
     }
   );
 }
